@@ -1,0 +1,9 @@
+#!/bin/sh
+'''exec' "/Users/dawoodbutt/Desktop/10. UNI/3. Programming for AI/1. Group project/Student-data-system/.venv/bin/python" "$0" "$@"
+' '''
+import sys
+from debugpy.adapter.__main__ import main
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(main())
