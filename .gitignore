@@ -1,8 +1,30 @@
-# Mac junk
+# --- OS / Mac System Files ---
 .DS_Store
+.DS_Store?
+._*
+.Trashes
+Thumbs.db
 
-# Python junk
+# --- Python Virtual Environments ---
+# Ignore the actual folder containing all the libraries
+.venv/
+venv/
+env/
+ENV/
+
+# --- Python Bytecode (Generated automatically) ---
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.pytest_cache/
+*.pyo
+*.pyd
+
+# --- IDE Settings (VS Code) ---
+.vscode/
+
+# --- Project Specifics ---
+# Ignore the local database file (binary files cause conflicts)
+*.db
+*.sqlite3
+
+# (Optional) Ignore Streamlit secrets if you ever add them
+.streamlit/secrets.toml
