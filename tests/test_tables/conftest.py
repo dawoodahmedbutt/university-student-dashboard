@@ -1,5 +1,5 @@
 import pytest
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker
 from src.Data_Access_Layer.Base import Base
 
@@ -14,7 +14,16 @@ from src.Data_Access_Layer.Tables.StudentSession import StudentSession
 
 @pytest.fixture(scope="module")
 def engine():
-    return create_engine("sqlite:///:memory:")
+    engine = create_engine("sqlite:///:memory:")
+
+   
+    @event.listens_for(engine, "connect")
+    def set_sqlite_pragma(dbapi_connection, connection_record):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON;")
+        cursor.close()
+
+    return engine
 
 @pytest.fixture(scope="module")
 def setup_db(engine):
