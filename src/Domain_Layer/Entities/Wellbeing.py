@@ -8,6 +8,6 @@ class Wellbeing:
         self.stress_level = stress
         self.activity_level = activity
         self.quality_of_food = food_quality
-        self.alcohol_drug_consumption = alcohol_drugs,
+        self.alcohol_drug_consumption = alcohol_drugs
         self.medication = medication
         self.hours_slept = hours_slept
