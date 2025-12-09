@@ -94,13 +94,4 @@ Files & entry points
 - DB seeder: `src/seed_university_db.py`
 - Frontend entry: `frontend/src/app.py` (Streamlit)
 
-Next steps
-- (Optional) Add a top-level `requirements.txt` listing backend and frontend deps.
-- (Optional) Make `DATABASE_URL` configurable via environment variables.
-- (Optional) Add a `Makefile` or `scripts` to automate setup commands.
-
-If you'd like, I can:
-- add a `requirements.txt` with exact versions,
-- add a small `Makefile` to run the common commands,
-- or update `src/Data_Access_Layer/DB.py` to read `DATABASE_URL` from env.
 
