@@ -6,10 +6,6 @@ class StudentRepo(BaseRepo[StudentEntity], IStudentRepo):
 
     def __init__(self, session):
         super().__init__(session, StudentTable)
-
-    def add(self, orm):
-        
-        return super().add(orm)
     
     def _to_entity(self, row: StudentTable) -> StudentEntity:
         """Convert ORM row to domain entity."""
@@ -32,7 +28,13 @@ class StudentRepo(BaseRepo[StudentEntity], IStudentRepo):
         )
         return [self._to_entity(r) for r in rows]
 
+    def _to_orm(self, entity):
+        orm = StudentTable(student_id=entity.student_id,first_name=entity.first_name,last_name=entity.last_name,
+                           address=entity.address,email=entity.email,course_id=entity.course_id,year_of_study=entity.year_of_study)
+        return orm
     
-    # def _to_orm(self, entity):
-    #     orm = StudentTable(student_id= entity.)
-    #     return 
+    def get_student_name_by_id(self, student_id: int) -> str:
+        student = self.get_by_id(student_id)
+        if student:
+            return {"first_name": student.first_name, "last_name": student.last_name}
+        return ""

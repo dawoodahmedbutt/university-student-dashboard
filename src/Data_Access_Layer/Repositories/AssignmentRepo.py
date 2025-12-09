@@ -19,12 +19,11 @@ class AssignmentRepo(BaseRepo[AssignmentEntity], IAssignmentRepo):
     # ORM ↔ Entity conversion helpers
     def _to_entity(self, row: AssignmentTable) -> AssignmentEntity:
         """Convert ORM row to domain entity."""
-        # Domain Assignment expects (assignment_id, module_id, assignment_name, due_date)
         entity = AssignmentEntity(
-            row.assignment_id,
-            row.module_id,
-            row.assignment_name,
-            row.due_date,
+            assignment_id=row.assignment_id,
+            module_id=row.module_id,
+            assignment_name=row.assignment_name,
+            due_date=row.due_date,
         )
         return entity    
 
