@@ -4,7 +4,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from src.Data_Access_Layer.Tables.Module import Module 
 from src.Data_Access_Layer.Base import Base
-
+# from API.Data_Access_Layer.Tables.StudentSession import StudentSession 
 
 
 class Session(Base):
