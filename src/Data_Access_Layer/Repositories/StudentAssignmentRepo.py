@@ -32,12 +32,12 @@ class StudentAssignmentRepo(BaseRepo[StudentAssignmentEntity], IStudentAssignmen
     # ORM ↔ Entity conversion helpers
 
     def _to_entity(self, row: StudentAssignmentTable) -> StudentAssignmentEntity:
-        # StudentAssignment entity expects (student_id, assignment_id, grade, submitted_date)
+
         entity = StudentAssignmentEntity(
-            row.student_id,
-            row.assignment_id,
-            row.grade,
-            row.submitted_date,
+            student_id=row.student_id,
+            assignment_id=row.assignment_id,
+            grade=row.grade,
+            submitted_date=row.submitted_date
         )
         return entity
 
@@ -48,6 +48,6 @@ class StudentAssignmentRepo(BaseRepo[StudentAssignmentEntity], IStudentAssignmen
         return StudentAssignmentTable(
             student_id=entity.student_id,
             assignment_id=entity.assignment_id,
-            submitted_date=getattr(entity, "submitted_date", None),
-            grade=getattr(entity, "grade", None),
+            grade=entity.grade,
+            submission_notes=entity.submission_notes,
         )

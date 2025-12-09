@@ -15,6 +15,7 @@ class BaseRepo(Generic[Entity], IBaseRepo[Entity]):
         self.model = model
 
     def get_by_id(self, id: int) -> Entity:
+
         orm = self.session.get(self.model, id)
         if orm is None:
             return None
