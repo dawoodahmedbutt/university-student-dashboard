@@ -3,6 +3,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from src.Data_Access_Layer.Base import Base
+# from API.Data_Access_Layer.Tables.Student import Student 
 
 
 class Wellbeing(Base):
@@ -22,9 +23,10 @@ class Wellbeing(Base):
         CheckConstraint("stress_level BETWEEN 1 AND 10", name="check_stress"),
         CheckConstraint("activity_level BETWEEN 1 AND 10", name="check_activity"),
         CheckConstraint("quality_of_food BETWEEN 1 AND 10", name="check_food_quality"),
-        CheckConstraint("alcohol_drug_consumption BETWEEN 0 AND 5", name="check_alcohol_drug"),
-        CheckConstraint("medication BETWEEN 0 AND 5", name="check_medication"),
+        CheckConstraint("alcohol_drug_consumption BETWEEN 1 AND 10", name="check_alcohol_drug"),
+        CheckConstraint("medication BETWEEN 1 AND 10", name="check_medication"),
         CheckConstraint("hours_slept BETWEEN 0 AND 24", name="check_sleep"),
+        UniqueConstraint("student_id", "date", name="unique_student_date"),
     )   
 
     student = relationship("Student", back_populates="wellbeing")

@@ -4,9 +4,10 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from src.Data_Access_Layer.Base import Base
 from src.Data_Access_Layer.Tables.Student import Student 
+# from API.Data_Access_Layer.Tables.Assignment import Assignment 
 
 
-# Junction table: Student Assignment
+# Junction table: Student <-> Assignment
 class StudentAssignment(Base):
     __tablename__ = "student_assignments"
 

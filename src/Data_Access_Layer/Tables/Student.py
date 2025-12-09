@@ -6,7 +6,7 @@ from src.Data_Access_Layer.Base import Base
 from src.Data_Access_Layer.Tables.Wellbeing import Wellbeing 
 from src.Data_Access_Layer.Tables.Course import Course 
 from src.Data_Access_Layer.Tables.StudentSession import StudentSession 
-
+# from API.Data_Access_Layer.Tables.StudentAssignment import StudentAssignment 
 
 
 
