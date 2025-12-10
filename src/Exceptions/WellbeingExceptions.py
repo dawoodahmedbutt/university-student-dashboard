@@ -1,0 +1,2 @@
+class WellbeingException(Exception):
+    pass

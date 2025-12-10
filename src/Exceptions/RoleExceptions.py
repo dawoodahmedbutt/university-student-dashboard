@@ -1,0 +1,2 @@
+class RoleExceptions(Exception):
+    pass

@@ -1,0 +1,2 @@
+class ModuleException(Exception):
+    pass
