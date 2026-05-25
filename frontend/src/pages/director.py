@@ -1,5 +1,6 @@
 import streamlit as st
 import altair as alt
+import pandas as pd
 from data import dashboard_api as api
 from utils import to_df
 
@@ -43,8 +44,6 @@ def render():
             grade_dist = api.get_grade_distribution(course_id, module_id)
         
         if grade_dist:
-            # Convert dictionary to DataFrame for plotting
-            import pandas as pd
             dist_df = pd.DataFrame([
                 {"Student ID": student_id, "Grade": grade}
                 for student_id, grade in grade_dist.items()
@@ -94,8 +93,6 @@ def render():
             risk_data = api.get_student_risk_matrix(course_id, module_id)
         
         if risk_data:
-            # Convert dictionary to DataFrame
-            import pandas as pd
             risk_df = pd.DataFrame.from_dict(risk_data, orient='index')
             risk_df.index.name = 'Student ID'
             risk_df = risk_df.reset_index()
@@ -121,7 +118,7 @@ def render():
                 return ''
             
             # Apply styling to Risk Level column
-            styled_df = risk_df.style.applymap(
+            styled_df = risk_df.style.map(
                 color_risk,
                 subset=['Risk Level']
             )

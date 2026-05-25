@@ -50,9 +50,3 @@ def get_averages(
 def get_grade_data(course_id: int, module_id: int,db: Session = Depends(get_db)):
     service = Studentriskservice(db)
     return service.get_student_risk_summary(module_id, course_id)
-
-
-# @router.get("/director/test")
-# def test(db: Session = Depends(get_db)):
-#     service = ModuleServices(db)
-#     return service.get_all()

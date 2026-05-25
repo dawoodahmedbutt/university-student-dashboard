@@ -1,36 +1,15 @@
 import streamlit as st
 import requests
-import hashlib
 from typing import Optional, Dict
 
-# Backend login endpoint
 LOGIN_URL = "http://127.0.0.1:8000/login"
 
 
-def hash_password(password: str) -> str:
-    """Hash a password using SHA-256."""
-    return hashlib.sha256(password.encode()).hexdigest()
-
-
 def authenticate(username: str, password: str) -> Optional[Dict]:
-    """
-    Authenticate user credentials against the backend API.
-    
-    Args:
-        username: The username to authenticate
-        password: The password to verify (will be hashed before sending)
-        
-    Returns:
-        User dictionary if authentication successful, None otherwise
-    """
     try:
-        # Hash the password before sending to backend
-        hashed_password = hash_password(password)
-        
-        # Send login request to backend
         payload = {
             "username": username,
-            "password": hashed_password
+            "password": password
         }
         
         response = requests.post(LOGIN_URL, json=payload, timeout=5)

@@ -1,4 +1,4 @@
-# create_db.py
+"""Creates the SQLite database schema without seeding data. Run src/seed_university_db.py for a fully populated database."""
 
 from sqlalchemy import create_engine
 from src.Data_Access_Layer.Base import Base
@@ -15,7 +15,6 @@ from src.Data_Access_Layer.Tables import Student
 from src.Data_Access_Layer.Tables import StudentAssignment
 from src.Data_Access_Layer.Tables import UserAccount
 from src.Data_Access_Layer.Tables import StudentSession
-# ... import ALL tables here
 
 engine = create_engine("sqlite:///university.db", echo=True)  # echo=True shows SQL logs
 Base.metadata.create_all(engine)

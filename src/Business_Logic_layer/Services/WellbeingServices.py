@@ -3,8 +3,6 @@ from src.Data_Access_Layer.Repositories.WellbeingRepo import WellbeingRepo
 from src.Data_Access_Layer.Repositories.StudentRepo import StudentRepo 
 from src.Data_Access_Layer.Repositories.CourseRepo import CourseRepo
 from src.Exceptions.WellbeingExceptions import WellbeingException
-from src.Exceptions.WellbeingExceptions import WellbeingException
-from datetime import date, time
 
 class WellbeingServices:
     def __init__(self, db):
@@ -62,10 +60,7 @@ class WellbeingServices:
                 student_name = self.student_repo.get_student_name_by_id(student.student_id)
                 student.student_first_name =  student_name["first_name"]
                 student.student_last_name = student_name["last_name"]
-                # student.risk_level = (student.stress_level + (10 - student.activity_level)
-                #                     + (10 - student.quality_of_food) + student.alcohol_drug_consumption
-                #                       + student.medication) / 5
-                student.risk_level = 10-student.stress_level
+                student.risk_level = 10 - student.stress_level
             return res
     
     def stress_avg_by_course(self, course_id: int):

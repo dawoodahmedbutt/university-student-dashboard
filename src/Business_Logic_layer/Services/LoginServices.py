@@ -1,7 +1,4 @@
 from src.Data_Access_Layer.Repositories.UserAccountRepo import UserAccountRepo
-from src.Domain_Layer.Entities.Course import Course
-from datetime import date, time
-from sqlalchemy.exc import IntegrityError
 
 
 class LoginServices:

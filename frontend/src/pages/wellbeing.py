@@ -216,7 +216,7 @@ def render():
             display_df = display_df[mask]
         
         # Apply text coloring to risk_level column
-        styled_df = display_df.style.applymap(
+        styled_df = display_df.style.map(
             color_risk_text,
             subset=['Risk']
         )

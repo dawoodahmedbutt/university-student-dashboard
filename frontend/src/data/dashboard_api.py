@@ -49,11 +49,7 @@ TIMEOUT = int(os.environ.get("DASHBOARD_API_TIMEOUT", "2"))
 
 
 def _build_url(path: str) -> str:
-    """Return full URL for a path; path may already include leading '/'."""
     return BASE_URL + path
-    # if not BASE_URL:
-    #     return ""
-    # return BASE_URL.rstrip("/") + "/" + path.lstrip("/")
 
 
 def _fetch_json(path: str, params: Optional[Dict[str, Any]] = None, timeout: int = TIMEOUT) -> Optional[Any]:

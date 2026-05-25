@@ -7,7 +7,7 @@ The Data Management dashboard now uses a modular structure where each table (Stu
 ## File Structure
 
 ```
-frontend_v2/
+frontend/
 ├── src/
 │   ├── data/
 │   │   └── dashboard_api.py          # API client with CRUD endpoints

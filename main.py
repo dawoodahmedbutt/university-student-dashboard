@@ -20,9 +20,7 @@ from src.Presentation_Layer.Routers.CRUDDashboard.CourseTable import router as C
 from src.Presentation_Layer.Routers.CRUDDashboard.ModuleTable import router as Module_table_router 
 from src.Presentation_Layer.Routers.CRUDDashboard.StudentTable import router as Student_table_router 
 from src.Presentation_Layer.Routers.WellbeingDashboard import router as WellbeingDashboard_router 
-from src.Presentation_Layer.Routers.LoginDashboard import router as LoginDashboard_router 
-# from API.Presentation_Layer.Routers.visualization import  as visualizing_router
-
+from src.Presentation_Layer.Routers.LoginDashboard import router as LoginDashboard_router
 
 
 app = FastAPI(title="Student System API")
@@ -35,7 +33,6 @@ app.include_router(Module_table_router, tags=["Module_table_crud"])
 app.include_router(Student_table_router, tags=["Student_table_crud"])
 app.include_router(WellbeingDashboard_router, tags=["WellbeingDashboard"])
 app.include_router(LoginDashboard_router, tags=["LoginDashboard"])
-# app.include_router(visualizing_router, tags=["Visualizing"])
 
 @app.get("/")
 def home():
